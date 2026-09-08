@@ -29,8 +29,7 @@ public class School {
     public School() {
     }
 
-    public School(Integer id, String name) {
-        this.id = id;
+    public School(String name) {
         this.name = name;
     }
 
