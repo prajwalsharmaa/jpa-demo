@@ -1,5 +1,6 @@
-package com.prajwal.jpa_demo;
+package com.prajwal.jpa_demo.studentProfile;
 
+import com.prajwal.jpa_demo.student.Student;
 import jakarta.persistence.*;
 
 @Entity

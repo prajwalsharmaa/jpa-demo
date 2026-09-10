@@ -1,6 +1,5 @@
-package com.prajwal.jpa_demo;
+package com.prajwal.jpa_demo.student;
 
-import jakarta.persistence.criteria.CriteriaBuilder;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

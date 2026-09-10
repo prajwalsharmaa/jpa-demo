@@ -1,4 +1,4 @@
-package com.prajwal.jpa_demo;
+package com.prajwal.jpa_demo.school;
 
 import org.springframework.web.bind.annotation.*;
 

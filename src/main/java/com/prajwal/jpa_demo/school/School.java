@@ -1,6 +1,7 @@
-package com.prajwal.jpa_demo;
+package com.prajwal.jpa_demo.school;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.prajwal.jpa_demo.student.Student;
 import jakarta.persistence.*;
 
 import java.util.List;

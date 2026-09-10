@@ -1,7 +1,6 @@
-package com.prajwal.jpa_demo;
+package com.prajwal.jpa_demo.student;
 
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 

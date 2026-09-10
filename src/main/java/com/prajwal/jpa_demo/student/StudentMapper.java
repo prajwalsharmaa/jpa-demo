@@ -1,5 +1,6 @@
-package com.prajwal.jpa_demo;
+package com.prajwal.jpa_demo.student;
 
+import com.prajwal.jpa_demo.school.School;
 import org.springframework.stereotype.Service;
 
 @Service

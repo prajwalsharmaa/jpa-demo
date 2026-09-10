@@ -1,6 +1,8 @@
-package com.prajwal.jpa_demo;
+package com.prajwal.jpa_demo.student;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.prajwal.jpa_demo.school.School;
+import com.prajwal.jpa_demo.studentProfile.StudentProfile;
 import jakarta.persistence.*;
 
 @Entity
