@@ -7,35 +7,25 @@ import java.util.stream.Collectors;
 
 @RestController
 public class SchoolController {
-    private final SchoolRepository schoolRepository;
+    private  final SchoolService schoolService;
 
-    public SchoolController(SchoolRepository schoolRepository) {
-        this.schoolRepository = schoolRepository;
+    public SchoolController(SchoolService schoolService) {
+        this.schoolService = schoolService;
     }
 
     @PostMapping("/schools")
     public SchoolDto create(
             @RequestBody SchoolDto dto
     ){
-        var school = schoolDtoToSchool(dto);
-        var savedSchool = schoolRepository.save(school);
-        return dto;
+        return schoolService.create(dto);
     }
-    private School schoolDtoToSchool(SchoolDto dto){
-        return new School(dto.name());
-    }
-    private SchoolDto schoolToSchooDto(School school){
-        return new SchoolDto(school.getName());
-    }
+
 //    @GetMapping("/schools")
 //    public List<School> findAll(){
 //        return schoolRepository.findAll();
 //    }
     @GetMapping("/schools")
     public List<SchoolDto> findAll(){
-        return schoolRepository.findAll()
-                .stream()
-                .map(this::schoolToSchooDto)
-                .collect(Collectors.toList());
+        return schoolService.findAll();
     }
 }
