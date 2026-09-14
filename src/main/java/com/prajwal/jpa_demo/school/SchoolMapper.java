@@ -4,10 +4,10 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class SchoolMapper {
-    public School schoolDtoToSchool(SchoolDto dto){
+    public School toSchool(SchoolDto dto){
         return new School(dto.name());
     }
-    public SchoolDto schoolToSchooDto(School school){
+    public SchoolDto toSchooDto(School school){
         return new SchoolDto(school.getName());
     }
 }

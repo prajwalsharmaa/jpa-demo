@@ -3,9 +3,9 @@ package com.prajwal.jpa_demo.student;
 import jakarta.validation.constraints.NotEmpty;
 
 public record StudentDto(
-        @NotEmpty
+        @NotEmpty(message = "Firstname should not be empty")
         String firstName,
-        @NotEmpty
+        @NotEmpty(message = "Lastname should not be empty")
         String lastName,
         String email,
         Integer schoolId

@@ -19,7 +19,7 @@ public class SchoolService {
     public SchoolDto create(
             SchoolDto dto
     ){
-        var school = schoolMapper.schoolDtoToSchool(dto);
+        var school = schoolMapper.toSchool(dto);
         var savedSchool = schoolRepository.save(school);
         return dto;
     }
@@ -27,7 +27,7 @@ public class SchoolService {
     public List<SchoolDto> findAll(){
         return schoolRepository.findAll()
                 .stream()
-                .map(schoolMapper::schoolToSchooDto)
+                .map(schoolMapper::toSchooDto)
                 .collect(Collectors.toList());
     }
 
