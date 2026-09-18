@@ -1,5 +1,6 @@
 package com.prajwal.jpa_demo.student;
 
+import com.prajwal.jpa_demo.studentProfile.StudentProfile;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -53,6 +54,12 @@ public class StudentController {
             @PathVariable("student-id") Integer id
     ){
         this.studentService.delete(id);
+    }
+    @PostMapping("/{studentId}/profile")
+    public StudentProfile createProfile(
+            @PathVariable Integer studentId,
+            @RequestBody StudentProfile profile) {
+            return studentService.createProfile(studentId,profile);
     }
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<?> handleMethodArgumentNotValidException(

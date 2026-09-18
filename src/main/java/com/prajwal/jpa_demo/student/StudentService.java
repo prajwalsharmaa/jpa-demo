@@ -1,6 +1,11 @@
 package com.prajwal.jpa_demo.student;
 
+import com.prajwal.jpa_demo.studentProfile.StudentProfile;
+import com.prajwal.jpa_demo.studentProfile.StudentProfileRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -8,10 +13,12 @@ import java.util.List;
 public class StudentService {
     private final StudentRepository repository;
     private final StudentMapper studentMapper;
+    private final StudentProfileRepository profileRepository;
 
-    public StudentService(StudentRepository repository, StudentMapper studentMapper) {
+    public StudentService(StudentRepository repository, StudentMapper studentMapper, StudentProfileRepository profileRepository) {
         this.repository = repository;
         this.studentMapper = studentMapper;
+        this.profileRepository = profileRepository;
     }
 
     public StudentResponseDto saveStudent(
@@ -39,5 +46,16 @@ public class StudentService {
             Integer id
     ){
         repository.deleteById(id);
+    }
+    public StudentProfile createProfile(
+            Integer studentId,
+            StudentProfile profile) {
+
+        Student student = repository.findById(studentId)
+                .orElseThrow(() -> new RuntimeException("Student not found"));
+
+        profile.setStudent(student);
+
+        return profileRepository.save(profile);
     }
 }
